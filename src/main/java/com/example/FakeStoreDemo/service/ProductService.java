@@ -1,22 +1,33 @@
 package com.example.FakeStoreDemo.service;
 
 import com.example.FakeStoreDemo.client.FakeStoreClient;
-import com.example.FakeStoreDemo.dto.ProductResponseDTO;
+import com.example.FakeStoreDemo.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 public class ProductService {
     @Autowired
     private FakeStoreClient fakeStoreClient;
 
-    public ProductResponseDTO[] getAllProducts()
+    public ProductDTO[] getAllProducts()
     {
         return fakeStoreClient.getAllProducts();
     }
-    public ProductResponseDTO getProductById(int id)
+    public ProductDTO getProductById(int id)
     {
         return fakeStoreClient.getProductById(id);
+    }
+    public  ProductDTO addProduct(ProductDTO productDTO)
+    {
+        return fakeStoreClient.addProduct(productDTO);
+    }
+    public  ProductDTO replaceProductById(int id,ProductDTO productDTO)
+    {
+        return fakeStoreClient.replaceProductById(id,productDTO);
+    }
+    public boolean deleteProductById(int id)
+    {
+        return fakeStoreClient.deleteProductById(id);
     }
 }

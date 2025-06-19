@@ -1,6 +1,6 @@
 package com.example.FakeStoreDemo.dto;
 
-public class ProductResponseDTO
+public class ProductDTO
 {
  private String title;
  private String description;
